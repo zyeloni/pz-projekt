@@ -1,0 +1,45 @@
+version: '3.4'
+
+services:
+  projectfront:
+    image: projectfront
+    build:
+      context: SAMS-front
+      dockerfile: ./Dockerfile
+    ports:
+      - 82:80
+    depends_on:
+      - api
+    networks:
+      - samsnet
+  api:
+    image: api
+    build:
+      context:  SAMS-API
+      dockerfile: ./Dockerfile
+    ports:
+      - 5000:5000
+      - 5001:5001
+    depends_on:
+      - db
+    networks:
+      - samsnet
+  db:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      SA_PASSWORD: samsPassword1234
+      ACCEPT_EULA: "Y"
+      DATABASE: sams
+    ports:
+      - "1433:1433"
+    volumes:
+      - sams-db:/var/opt/mssql
+    networks:
+      - samsnet
+
+volumes:
+  sams-db:
+    driver: local
+
+networks:
+  samsnet:
