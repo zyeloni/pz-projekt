@@ -1,0 +1,26 @@
+<div style="padding: 2em">
+    @model API.Models.Raport
+    
+    <center>
+        <h1>Oświadczenie</h1>
+    </center>
+    
+    <p style="font-size: 24px">&emsp;W dniu @Model.StartTime została przerpowadzona pomoc koleżeniska z przedmiotu <strong>@Model.Subject</strong>. Na pomocy kolezeńskiej poruszane zostały takie kwestie jak:</p>
+    <p  style="font-size: 24px">@Model.Content</p>
+    
+    
+    <table border="0" style="width: 100%; text-align: center; margin-top: 10em;">
+        <thead>
+        <tr>
+            <th>..........................................................................................</th>
+            <th>..........................................................................................</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>(podpis opiekuna koła naukowego)</td>
+            <td>(podpis przewodniczącego koła naukowego)</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

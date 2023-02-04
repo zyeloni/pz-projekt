@@ -1,0 +1,25 @@
+<div class="row mt-5 bg-transparent">
+    <div class="col-md-6 m-auto bg-transparent">
+        <div class="card card-body rounded bg-loght">
+            <button (click)="routeAdd()" class="btn btn-success">Add</button>
+            <button (click)="back()" class="btn btn-info">Back</button>
+            <div class="card card-body rounded bg-loght" *ngIf="isHeadAdmin()">
+                <button (click)="getAdmin()" class="btn btn-warn">Show as Admin</button>
+                <button (click)="getNonAdmin()" class="btn btn-warn">Show as User</button>
+            </div>
+            <div *ngFor="let aid of aidsList">
+                <div>
+                    <hr />
+                    <p>Science Club: {{ aid.club }}</p>
+                    <p>Date and time: {{ aid.time }}</p>
+                    <p *ngIf="checkAdmin">Student: {{ aid.name }} {{ aid.surname }}</p>
+                    <p>Subject: {{ aid.subject }}</p>
+                    <p>Comment: {{ aid.comment }}</p>
+
+                    <button (click)="print(aid.id)" class="btn btn-success">
+                        <i class='fa fa-print'></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

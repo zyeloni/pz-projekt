@@ -1,0 +1,35 @@
+<div class="row mt-5 bg-transparent">
+    <div class="col-md-6 m-auto bg-transparent">
+        <div class="card card-body rounded bg-loght">
+            <h2 class="text-center">Add Science Club</h2>
+            <hr />
+            <div class="form-group">
+                <div *ngFor="let error of errors">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{ error }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                <div *ngFor="let commit of commits">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ commit }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <form [formGroup] = "formGroup" (ngSubmit)="addProcess()">
+                <div class="form-group">
+                    <label for="clubName">Club Name: </label>
+                    <input type="text" formControlName = "name" class="form-control" placeholder="Full Club name"/>
+                    <span><input type="checkbox" formControlName = "join" /> Join to created club</span>
+                </div>
+                <button type="submit" class="btn btn-success btn-block"><i class="fas fa-plus"></i>Add</button>
+                <button (click)="back()" class="btn btn-info btn-block">Back</button>
+            </form>
+        </div>
+    </div>
+</div>

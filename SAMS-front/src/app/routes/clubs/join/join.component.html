@@ -1,0 +1,14 @@
+<div class="row mt-5 bg-transparent">
+    <div class="col-md-6 m-auto bg-transparent">
+        <div class="card card-body rounded bg-loght">
+            <button (click)="back()" class="btn btn-info">Back</button>
+            <div *ngFor="let club of clubsList">
+                <span class="d-flex flex-row">
+                    <span class="p-2" >{{club.name}}</span>
+                    <button class="p-2" *ngIf="!club.joined" (click)="join(club.id)" class="btn btn-success">Join</button>
+                    <button class="p-2" *ngIf="club.joined" (click)="leave(club.id)" class="btn btn-danger">Leave</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
