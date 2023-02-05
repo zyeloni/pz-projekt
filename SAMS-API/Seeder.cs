@@ -44,7 +44,7 @@ namespace API
                 new User() { 
                     Name = "Hubert", 
                     Surname = "Troć", 
-                    Email = "psptorchinim@gmail.com", 
+                    Email = "test@test.com", 
                     Password = "testPassword1234",
                     Registered = DateTimeOffset.Now,
                     Role = "Admin"
